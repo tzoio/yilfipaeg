@@ -1,0 +1,184 @@
+/* Colors Themes */
+
+/* Theme 1 */
+
+
+$marzipan: #f8e9a1;
+$carnation: #f76c6c;
+$regent-st-blue: #a8d0e6;
+$chambray: #375785;
+$cloud-burst: #24305e;
+
+
+$theme-1: (
+    primary: $marzipan,
+    secondary: $chambray,
+    accent: $carnation,
+    dark: $cloud-burst,
+    light: $regent-st-blue
+);
+
+
+/* Theme 2 */
+
+
+$buttered-rum: #996b0b;
+$golden-tainoi: #ffce66;
+$ronchi: #edb847;
+$denim: #1564eb;
+$dodger-blue: #4b8cfb;
+
+
+$theme-2: (
+    primary: $ronchi,
+    secondary: $dodger-blue,
+    accent: $buttered-rum,
+    dark: $denim,
+    light: $golden-tainoi
+);
+
+
+/* Theme Analogous */
+
+
+$golden-fizz: #F7ED41;
+$old-gold: #D6BD38;
+//$ronchi: #EDC34A;
+$hokey-pokey: #D69D38;
+$sea-buckthorn: #F79F41;
+
+
+$theme-analogous: (
+    primary: $ronchi,
+    secondary: $old-gold,
+    accent: $sea-buckthorn,
+    dark: $hokey-pokey,
+    light: $golden-fizz
+);
+
+
+/* Theme Complementary */
+
+
+$reef-gold: #A18022;
+$goldenrod: #FFD869;
+//$ronchi: #EDC34A;
+$torea-bay: #122FA1;
+$royal-blue: #4A6BED;
+
+
+$theme-complementary: (
+    primary: $ronchi,
+    secondary: $goldenrod,
+    accent: $torea-bay,
+    dark: $reef-gold,
+    light: $royal-blue
+);
+
+
+/* Theme Composed */
+
+
+$eastern-blue: #2793BA;
+$jordy-blue: #87B7EF;
+//$ronchi: #EDC34A;
+$clay-creek: #878560;
+$hokey-pokey1: #BAB227;
+
+
+$theme-composed: (
+    primary: $ronchi,
+    secondary: $eastern-blue,
+    accent: $hokey-pokey1,
+    dark: $clay-creek,
+    light: $jordy-blue
+);
+
+
+/* Theme Monochromatic */
+
+
+$dallas: #6e5a22;
+$chalky: #f0d893;
+//$ronchi: #edc34a;
+$tobacco-brown: #6e6343;
+$tussock: #ba993a;
+
+
+$theme-monochromatic: (
+    primary: $ronchi,
+    secondary: $tobacco-brown,
+    accent: $tussock,
+    dark: $dallas,
+    light: $chalky
+);
+
+
+/* Theme Triad */
+
+
+$seance: #922AA1;
+$purple-heart: #A927BA;
+//$ronchi: #EDC34A;
+$turquoise-blue: #63F0C9;
+//$reef-gold: #A18022;
+
+
+$theme-triad: (
+    primary: $ronchi,
+    secondary: $seance,
+    accent: $turquoise-blue,
+    dark: $reef-gold,
+    light: $purple-heart
+);
+
+
+/* Color maps */
+
+
+$themes-map: (
+    '1' : $theme-1,
+    '2' : $theme-2,
+    'composed' : $theme-composed,
+    'triad' : $theme-triad,
+    'complementary' : $theme-complementary,
+    'analogous' : $theme-analogous,
+    'monochromatic' : $theme-monochromatic
+);
+
+
+/* The user may use one of the default themes or create one on his own */
+
+
+$theme: '1' !default !global;
+
+
+@if type-of($theme) == string
+{
+    $colors: map-get($themes-map, #{$theme}) !default !global;
+} 
+@else 
+{
+    $colors: $theme !global;
+}
+
+
+$theme-shorthand: (
+    'p': map-get($colors, 'primary'),
+    's': map-get($colors, 'secondary'),
+    'a': map-get($colors, 'accent'),
+    'd': map-get($colors, 'dark'),
+    'l': map-get($colors, 'light'),
+    'w': #fff
+);
+
+
+$theme: (
+    'primary': map-get($colors, 'primary'),
+    'secondary': map-get($colors, 'secondary'),
+    'accent': map-get($colors, 'accent'),
+    'dark': map-get($colors, 'dark'),
+    'light': map-get($colors, 'light'),
+    'white': #fff
+);
+
