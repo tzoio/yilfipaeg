@@ -1,12 +1,5 @@
-//$theme: '1';
-//$theme: '2';
-//$theme: 'analogous'; 
-//$theme: 'complementary';
-$theme: 'composed';
-//$theme: 'monochromatic';
-//$theme: 'triad';
+@import './components/components.scss';
 
-@import './boot/_color/color';
 
 $primary:       gc(p);
 $secondary:     gc(s);
@@ -15,5 +8,4 @@ $light:         gc(l);
 $dark:          gc(d);
 
 
-
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";

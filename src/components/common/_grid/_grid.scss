@@ -1,0 +1,14 @@
+$columns: 16 !default;
+
+@each $key, $width in $breakpoints {
+
+    $width: 100%/$columns;
+
+    @for $col from 1 to $columns {
+        
+        @mixin col-#{$key}-#{$col} {
+
+            width: width*$col;
+        }
+    }
+}

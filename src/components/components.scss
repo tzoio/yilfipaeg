@@ -1,0 +1,47 @@
+@import './boot/boot';
+@import './common/_container/container';
+
+
+/*
+    All the following classes are ready to use. If you want 
+    to customize a class,it is possible to change the value
+    for the properties already defined simply passing a map
+    parameter with the property as the key, and the value as 
+    himself. This prevents to have two same properties 
+    defined at the same class (the class' properties are
+    explicited on it's body).
+    For additional properties simply set them here.
+*/
+
+.container {
+    /*
+    padding-left
+    padding-right
+    margin-left 
+    margin-right
+    */
+
+    @include container();
+}
+
+
+@each $mq, $rules in $into-mq {
+        
+    $curr-width: map-get($breakpoints, $mq);
+    @warn $mq;
+    
+    @media all and (min-width: #{$curr-width}) {
+        
+        @each $rule, $properties in $rules {
+            
+            .#{$rule} {
+                
+                @each $property-name, $property-val in $properties {
+                    
+                    #{$property-name}: #{$property-val}; 
+                }
+            }
+            
+        }
+    }
+}

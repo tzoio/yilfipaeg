@@ -14,20 +14,29 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-family: sans-serif;
-  line-height: 1.15;
+  line-height: 1.2em;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(#fff, 0);
 }
 
-// Shim for "new" HTML5 structural elements to display correctly (IE10, older browsers)
-// TODO: remove in v5
-// stylelint-disable-next-line selector-list-comma-newline-after
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
   display: block;
 }
+
 
 // Body
 //
@@ -36,68 +45,50 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 // 3. Set an explicit initial text-align value so that we can later use
 //    the `inherit` value on things like `<th>` elements.
 
+
 body {
-  margin: 0; // 1
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: inherit;
+  margin: 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: normal;
-  line-height: 1em;
+  line-height: 1.5;
   color: #000;
   text-align: left; // 3
   background-color: #fff; // 2
 }
+
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
 // This prevents an unwanted focus outline from appearing around elements that
 // might still respond to pointer events.
 //
 // Credit: https://github.com/suitcss/base
+
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
 
 
-// Content grouping
-//
-// 1. Add the correct box sizing in Firefox.
-// 2. Show the overflow in Edge and IE.
-
 hr {
   box-sizing: content-box; // 1
-  height: 0; // 1
-  overflow: visible; // 2
+  height: 1px;
+  background-color: #000;
+  border: none;
+  overflow: visible;
 }
 
 
-//
-// Typography
-//
-
-// Remove top margins from headings
-//
-// By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
-// margin for easier control within type scales as it avoids margin collapsing.
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-// Reset margins on paragraphs
-//
-// Similarly, the top margin on `<p>`s get reset. However, we also reset the
-// bottom margin to use `rem` units instead of `em`.
+
 p {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
-// Abbreviations
-//
-// 1. Duplicate behavior to the data-* attribute for our tooltip plugin
-// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-// 3. Add explicit cursor to indicate changed behavior.
-// 4. Remove the bottom border in Firefox 39-.
-// 5. Prevent the text-decoration to be skipped.
 
 abbr[title],
 abbr[data-original-title] { // 1
@@ -108,11 +99,13 @@ abbr[data-original-title] { // 1
   text-decoration-skip-ink: none; // 5
 }
 
+
 address {
   margin-bottom: 0;
   font-style: normal;
   line-height: inherit;
 }
+
 
 ol,
 ul,
@@ -122,6 +115,7 @@ dl {
   margin-inline-start: 0;
 }
 
+
 ol ol,
 ul ul,
 ol ul,
@@ -129,32 +123,33 @@ ul ol {
   margin-bottom: 0;
 }
 
+
 dt {
   font-weight: bold;
 }
+
 
 dd {
   margin-bottom: 0;
   margin-left: 0; // Undo browser default
 }
 
+
 blockquote {
   margin: 0;
 }
 
+
 b,
 strong {
-  font-weight: bolder; // Add the correct font weight in Chrome, Edge, and Safari
+  font-weight: bold; // Add the correct font weight in Chrome, Edge, and Safari
 }
+
 
 small {
   font-size: 80%; // Add the correct font size in all browsers
 }
 
-//
-// Prevent `sub` and `sup` elements from affecting the line height in
-// all browsers.
-//
 
 sub,
 sup {
@@ -164,13 +159,12 @@ sup {
   vertical-align: middle;
 }
 
+
 sub { bottom: -.25em; }
+
+
 sup { top: -.5em; }
 
-
-//
-// Links
-//
 
 a {
   color: #000;
@@ -183,11 +177,13 @@ a {
   }
 }
 
+
 // And undo these styles for placeholder links/named anchors (without href)
 // which have not been made explicitly keyboard-focusable (without tabindex).
 // It would be more straightforward to just use a[href] in previous block, but that
 // causes specificity issues in many other styles that are too complex to fix.
 // See https://github.com/twbs/bootstrap/issues/19402
+
 
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -205,17 +201,14 @@ a:not([href]):not([tabindex]) {
 }
 
 
-//
-// Code
-//
-
 pre,
 code,
 kbd,
 samp {
   font-family: 'Lucida Console';
-  font-size: 1em; // Correct the odd `em` font sizing in all browsers.
+  font-size: 1rem; // Correct the odd `em` font sizing in all browsers.
 }
+
 
 pre {
   // Remove browser default top margin
@@ -227,10 +220,6 @@ pre {
 }
 
 
-//
-// Figures
-//
-
 figure {
   // Apply a consistent margin strategy (matches our type styles).
   margin: 0;
@@ -241,10 +230,12 @@ figure {
 // Images and content
 //
 
+
 img {
   vertical-align: middle;
   border-style: none; // Remove the border on images inside links in IE 10-.
 }
+
 
 svg {
   // Workaround for the SVG overflow bug in IE10/11 is still required.
@@ -254,13 +245,10 @@ svg {
 }
 
 
-//
-// Tables
-//
-
 table {
   border-collapse: collapse; // Prevent double borders
 }
+
 
 caption {
   padding-top: 1rem;
@@ -270,16 +258,13 @@ caption {
   caption-side: bottom;
 }
 
+
 th {
   // Matches default `<td>` alignment by inheriting from the `<body>`, or the
   // closest parent with a set `text-align`.
   text-align: inherit;
 }
 
-
-//
-// Forms
-//
 
 label {
   // Allow labels to use `margin` for spacing.
@@ -294,6 +279,7 @@ button {
   border-radius: 0;
 }
 
+
 // Work around a Firefox/IE bug where the transparent `button` background
 // results in a loss of the default `button` focus styles.
 //
@@ -302,6 +288,7 @@ button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
+
 
 input,
 button,
@@ -314,15 +301,18 @@ textarea {
   line-height: inherit;
 }
 
+
 button,
 input {
   overflow: visible; // Show the overflow in Edge
 }
 
+
 button,
 select {
   text-transform: none; // Remove the inheritance of text transform in Firefox
 }
+
 
 // 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
 //    controls in Android 4.
@@ -334,6 +324,7 @@ button,
   -webkit-appearance: button; // 2
 }
 
+
 // Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -341,12 +332,6 @@ button::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
   padding: 0;
   border-style: none;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  box-sizing: border-box; // 1. Add the correct box sizing in IE 10-
-  padding: 0; // 2. Remove the padding in IE 10-
 }
 
 
@@ -362,11 +347,13 @@ input[type="month"] {
   -webkit-appearance: listbox;
 }
 
+
 textarea {
   overflow: auto; // Remove the default vertical scrollbar in IE.
   // Textareas should really only resize vertically so they don't break their (horizontal) containers.
   resize: vertical;
 }
+
 
 fieldset {
   // Browsers set a default `min-width: min-content;` on fieldsets,
@@ -381,13 +368,14 @@ fieldset {
   border: 0;
 }
 
+
 // 1. Correct the text wrapping in Edge and IE.
 // 2. Correct the color inheritance from `fieldset` elements in IE.
 legend {
   display: block;
   width: 100%;
   max-width: 100%; // 1
-  padding: 0;
+  padding: .5rem;
   margin-bottom: .5rem;
   font-size: 1.5rem;
   line-height: inherit;
@@ -395,15 +383,18 @@ legend {
   white-space: normal; // 1
 }
 
+
 progress {
   vertical-align: baseline; // Add the correct vertical alignment in Chrome, Firefox, and Opera.
 }
+
 
 // Correct the cursor style of increment and decrement buttons in Chrome.
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
+
 
 [type="search"] {
   // This overrides the extra rounded corners on search inputs in iOS so that our
@@ -414,6 +405,7 @@ progress {
   -webkit-appearance: none;
 }
 
+
 //
 // Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
 //
@@ -422,35 +414,35 @@ progress {
   -webkit-appearance: none;
 }
 
+
 //
 // 1. Correct the inability to style clickable types in iOS and Safari.
 // 2. Change font properties to `inherit` in Safari.
 //
+
 
 ::-webkit-file-upload-button {
   font: inherit;
   -webkit-appearance: button;
 }
 
+
 //
 // Correct element displays
 //
 
+
 output {
   display: inline-block;
 }
+
 
 summary {
   display: list-item; // Add the correct display in all browsers
   cursor: pointer;
 }
 
+
 template {
   display: none; // Add the correct display in IE
-}
-
-// Always hide an element with the `hidden` HTML attribute (from PureCSS).
-// Needed for proper display in IE 10-.
-[hidden] {
-  display: none !important;
 }
