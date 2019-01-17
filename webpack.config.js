@@ -35,7 +35,8 @@ module.exports = {
             chunkFilename: '[id].css'
         }),
         new plg.HtmlWebpack({
-            template: 'src/index.html'
+            template: 'src/index.html',
+            filename: 'index.html'
         }),
         new plg.CleanWebpack(['dist']),
         new plg.SourceMapDevTool({
