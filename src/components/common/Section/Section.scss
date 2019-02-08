@@ -1,0 +1,10 @@
+.Section {
+  @include make-container-flex();
+}
+
+.Section_items-center {
+  align-items: center;
+}
+
+
+@import './Section__title.scss';

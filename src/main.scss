@@ -1,11 +1,4 @@
-@import './components/components.scss';
-
-
-$primary:       gc(p);
-$secondary:     gc(s);
-$success:       gc(a);
-$light:         gc(l);
-$dark:          gc(d);
-
-
-// @import "~bootstrap/scss/bootstrap";
+@import './boot';
+@import './components/common/Section/Section';
+@import './components/common/Form/Form';
+@import './components/common/Button/Button';

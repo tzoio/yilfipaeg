@@ -1,0 +1,16 @@
+@function get-breakpoint( $breakpoint, $breakpoints: $device-breakpoints ) {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+
+@mixin media-query( $breakpoint-name, $breakpoints: $device-breakpoints ) {
+  @include  audit-breakpoint($breakpoint-name);
+
+  @if ($breakpoint-name == 'extra-small') {
+    @content;
+  } @else {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint-name)) {
+      @content;
+    }
+  }
+}

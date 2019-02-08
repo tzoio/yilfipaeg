@@ -1,0 +1,14 @@
+$dallas: #6e5a22;
+$chalky: #f0d893;
+$ronchi: #edb847;
+$tobacco-brown: #6e6343;
+$tussock: #ba993a;
+
+
+$monochromatic: (
+    primary: $ronchi,
+    secondary: $tobacco-brown,
+    accent: $tussock,
+    dark: $dallas,
+    light: $chalky
+);

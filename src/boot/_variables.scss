@@ -1,0 +1,20 @@
+$breakpoint-ms:  320px;
+$breakpoint-ml:  425px;
+$breakpoint-mx:  768px;
+$breakpoint-ds: 1024px;
+$breakpoint-dl: 1440px;
+
+
+$device-breakpoints: (
+  'extra-small':  $breakpoint-ms,
+  'small':        $breakpoint-ml,
+  'regular':      $breakpoint-mx,
+  'large':        $breakpoint-ds,
+  'extra-large':  $breakpoint-dl,
+);
+
+
+$gutter: 15px;
+
+
+$columns-amount: 16 !default;

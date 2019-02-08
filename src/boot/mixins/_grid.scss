@@ -1,0 +1,34 @@
+// @mixin generate-grid( $columns-amount, $bkps: $device-breakpoints ) {
+
+
+
+//   @each $bkp-name, $bkp-width  in $bkps {
+//     @for $col from 1 to $columns-amount {
+//       @include media-query($bkp-name) {
+//         .Grid__#{$bkp-name}-#{$col} {
+//           display: inline-block;
+//           width: $col-width * $col;
+//         }
+//       }
+//     }
+//   }
+// }
+
+@mixin prepare-grid( ) {
+  display: block;
+  width: 100%;
+  margin-right: -$gutter;
+  margin-left: -$gutter;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+@mixin from-grid( $bkp-name, $column-width ) {
+  $col-width: 100%/$columns-amount;
+
+  @include media-query($bkp-name) {
+    display: inline-block;
+    width: $col-width * $column-width;
+  }
+}

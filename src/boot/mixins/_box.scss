@@ -1,0 +1,50 @@
+@mixin set-padding-lateral( $size ) {
+  padding-right: $size;
+  padding-left:  $size;
+}
+
+
+@mixin set-max-width-device( ) {
+
+  max-width: get-breakpoint('extra-small');
+
+  @include media-query('small') {
+    max-width: get-breakpoint('small');
+  }
+
+  @include media-query('regular') {
+    max-width: get-breakpoint('regular');
+  }
+
+  @include media-query('large') {
+    max-width: get-breakpoint('large');
+  }
+
+  @include media-query('extra-large') {
+    max-width: get-breakpoint('extra-large');
+  }
+}
+
+
+@mixin at-center( ) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@mixin make-container( ) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include set-padding-lateral( $gutter );
+  @include set-max-width-device();
+}
+
+@mixin make-container-flex( ) {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  @include set-padding-lateral( $gutter );
+  @include set-max-width-device();
+}

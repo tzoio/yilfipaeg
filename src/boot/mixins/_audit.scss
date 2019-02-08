@@ -1,0 +1,6 @@
+@mixin audit-breakpoint( $breakpoint ) {
+  @if map-has-key($device-breakpoints, $breakpoint) == false {
+    @error 'The breakpoint given does not exist.';
+  }
+}
+

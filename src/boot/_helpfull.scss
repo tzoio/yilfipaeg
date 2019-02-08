@@ -1,0 +1,53 @@
+@function get-closest( $value, $list ) {
+  $last-value: nth($list, length($list));
+  $first-value: nth($list, 1);
+
+  @if $value >= $last-value {
+    @return $last-value;
+  } @else if $value <= $first-value {
+    @return $first-value;
+  }
+
+
+  @for $i from 1 to length($list) {
+    $curr: nth($list, $i);
+    $next: nth($list, $i + 1);
+    $half-way: $curr + ((($next - $curr) - 1) / 2);
+
+    @if ($value >= $curr and $value < $half-way) {
+      @return $curr;
+    } @else if ($value >= $half-way) {
+      @return $next;
+    }
+  }
+}
+
+
+@function get-breakpoint-name-short( $bkp-name ) {
+  @if ($bkp-name == 'mobile-small') {
+    @return 'ms';
+  } @else if ($bkp-name == 'mobile-large') {
+    @return 'ml';
+  } @else if ($bkp-name == 'mobile-extra') {
+    @return 'mx';
+  } @else if ($bkp-name == 'desktop-small') {
+    @return 'ds';
+  } @else {
+    @return 'dl';
+  }
+}
+
+
+@function get-breakpoint-name-long( $bkp-name ) {
+  @if ($bkp-name == 'ms') {
+    @return 'mobile-small';
+  } @else if ($bkp-name == 'ml') {
+    @return 'mobile-large';
+  } @else if ($bkp-name == 'mx') {
+    @return 'mobile-extra';
+  } @else if ($bkp-name == 'ds') {
+    @return 'desktop-small';
+  } @else {
+    @return 'desktop-large';
+  }
+}

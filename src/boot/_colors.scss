@@ -1,0 +1,50 @@
+@import './color-themes/analogous.scss';
+@import './color-themes/complementary.scss';
+@import './color-themes/composed.scss';
+@import './color-themes/monochromatic.scss';
+@import './color-themes/triad.scss';
+
+$themes-map: (
+    'composed' : $composed,
+    'triad' : $triad,
+    'complementary' : $complementary,
+    'analogous' : $analogous,
+    'monochromatic' : $monochromatic
+);
+
+
+// The user may use one of the default themes or create one on his own
+
+
+$color-theme: 'analogous' !default !global;
+
+
+$colors: map-get($themes-map, #{$color-theme}) !global;
+
+
+// @if type-of($color-theme) == string
+// {
+
+// }
+// @else
+// {
+//     $colors: $color-theme !global;
+// }
+
+
+$theme: (
+  'primary': map-get($colors, 'primary'),
+  'secondary': map-get($colors, 'secondary'),
+  'accent': map-get($colors, 'accent'),
+  'dark': map-get($colors, 'dark'),
+  'light': map-get($colors, 'light'),
+  'white': #fff
+);
+
+
+// Color Functions
+
+
+@function get-color($color) {
+  @return map-get($theme, $color);
+}

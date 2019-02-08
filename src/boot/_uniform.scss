@@ -4,8 +4,8 @@
 
 
 /* With border-box as value for box-sizing the width of elements
-  won't be affected by padding or border. What happens is that 
-  the border and padding grow towards the inside, hence the 
+  won't be affected by padding or border. What happens is that
+  the border and padding grow towards the inside, hence the
   'outer width' as default or   */
 
 *,
@@ -269,7 +269,7 @@ th {
 label {
   // Allow labels to use `margin` for spacing.
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
 // Remove the default `border-radius` that macOS Chrome adds.
