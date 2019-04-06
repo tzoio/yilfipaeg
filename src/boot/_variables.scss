@@ -1,9 +1,12 @@
+$BORDER_RADIUS: 3px;
+$CARD_PADDING: 25px;
+
+
 $breakpoint-ms:  320px;
 $breakpoint-ml:  425px;
 $breakpoint-mx:  768px;
 $breakpoint-ds: 1024px;
 $breakpoint-dl: 1440px;
-
 
 $device-breakpoints: (
   'extra-small':  $breakpoint-ms,
@@ -13,8 +16,24 @@ $device-breakpoints: (
   'extra-large':  $breakpoint-dl,
 );
 
-
 $gutter: 15px;
 
-
 $columns-amount: 16 !default;
+
+$regular-font-size: 16px !default;
+
+$font-sizes: (
+  'small': .8rem,
+  'regular': $regular-font-size,
+  'large': 1.5rem,
+  'extra-large': 2rem,
+  'enormous': 3rem,
+);
+
+$font-families: (
+  'serif': (Palatino, Garamond, Bookman, Georgia, 'Times New Roman', Times, serif),
+  'sans-serif': (Roboto, 'Roboto Condensed', 'Trebuchet MS', Arial, Verdana, Helvetica, sans-serif),
+  'display': (Arvo, Rubik, Impact),
+  'monospaced':( 'Roboto Mono', 'Courier New', Courier),
+);
+

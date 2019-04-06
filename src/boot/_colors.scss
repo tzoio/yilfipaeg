@@ -4,19 +4,28 @@
 @import './color-themes/monochromatic.scss';
 @import './color-themes/triad.scss';
 
+$grayscale: (
+    primary: #111,
+    secondary: #555,
+    accent: #333,
+    dark: #000,
+    light: #999,
+);
+
 $themes-map: (
     'composed' : $composed,
     'triad' : $triad,
     'complementary' : $complementary,
     'analogous' : $analogous,
-    'monochromatic' : $monochromatic
+    'monochromatic' : $monochromatic,
+    'grayscale': $grayscale,
 );
 
 
 // The user may use one of the default themes or create one on his own
 
 
-$color-theme: 'analogous' !default !global;
+$color-theme: 'grayscale' !default !global;
 
 
 $colors: map-get($themes-map, #{$color-theme}) !global;
@@ -38,6 +47,7 @@ $theme: (
   'accent': map-get($colors, 'accent'),
   'dark': map-get($colors, 'dark'),
   'light': map-get($colors, 'light'),
+  'shadow': rgba(0,0,0,.25),
   'white': #fff
 );
 

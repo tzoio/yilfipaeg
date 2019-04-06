@@ -1,0 +1,7 @@
+@function get-font-size( $size-name ) {
+  @return map-get($font-sizes, $size-name);
+}
+
+@function get-font-family( $font-name ) {
+  @return map-get($font-families, $font-name);
+}

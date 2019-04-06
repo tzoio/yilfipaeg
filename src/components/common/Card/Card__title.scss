@@ -1,0 +1,4 @@
+.Card__title {
+  font-weight: bold;
+  @include set-margin-gutter('bottom');
+}

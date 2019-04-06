@@ -1,0 +1,8 @@
+.Card__image {
+  margin-left: -$CARD_PADDING;
+  margin-right: -$CARD_PADDING;
+  margin-top: -$CARD_PADDING;
+  height: 150px;
+  @include set-margin-gutter('bottom');
+}
+

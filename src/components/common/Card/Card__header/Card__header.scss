@@ -1,0 +1,10 @@
+.Card__header {
+  position: relative;
+
+  .Card__title,
+  .Card__subtitle {
+    max-width: 75%;
+  }
+}
+
+@import './Card__header__image';

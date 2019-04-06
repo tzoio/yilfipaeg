@@ -1,0 +1,10 @@
+.Card__subtitle {
+  display: block;
+  position: relative;
+  line-height: 1em;
+  font-family: get-font-family('sans-serif');
+  font-size: get-font-size('small');
+  text-transform: uppercase;
+  color: get-color('secondary');
+  @include set-margin-gutter('bottom');
+}

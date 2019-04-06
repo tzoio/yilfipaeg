@@ -14,9 +14,9 @@
 //   }
 // }
 
+
 @mixin prepare-grid( ) {
   display: block;
-  width: 100%;
   margin-right: -$gutter;
   margin-left: -$gutter;
   padding-left: 0;
@@ -31,4 +31,13 @@
     display: inline-block;
     width: $col-width * $column-width;
   }
+}
+
+
+@mixin prepare-core-grid( $column-size ) {
+  display: grid;
+  grid-gap: $gutter * 2;
+  grid-template-columns: repeat(auto-fill, minmax(auto, $column-size));
+  justify-content: center;
+  align-content: start;
 }

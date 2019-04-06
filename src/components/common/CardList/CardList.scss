@@ -1,0 +1,6 @@
+.CardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @include reset-padding();
+}

@@ -2,7 +2,20 @@
 @import './boot/uniform';
 @import './boot/variables';
 @import './boot/colors';
+@import './boot/font';
 @import './boot/mixins';
 
 // General stuff
+
+@include set-title-headers( ) {
+  font-family: get-font-family('serif');
+  font-weight: normal;
+  color: get-color('primary');
+}
+
+html { font-size: get-font-size('regular') }
+
+h1 { font-size: get-font-size('extra-large') }
+
+h2 { font-size: get-font-size('large') }
 

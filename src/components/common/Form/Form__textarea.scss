@@ -2,4 +2,5 @@
   height: 10ch;
   max-height: 18ch;
   max-width: 100%;
+  @include input-border();
 }

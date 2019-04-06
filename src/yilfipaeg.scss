@@ -1,0 +1,11 @@
+@import './boot';
+@import './components/common/Section/Section';
+@import './components/common/Form/Form';
+@import './components/common/Button/Button';
+@import './components/common/CardList/CardList';
+@import './components/common/Card/Card';
+
+.Form {
+  display: grid;
+  grid-template-columns: minmax(auto, 500px);
+}
