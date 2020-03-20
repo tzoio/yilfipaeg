@@ -1,0 +1,5 @@
+.Form__input-text {
+  @include input-padding();
+  @include input-border();
+  @include input-focus();
+}

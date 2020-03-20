@@ -62,7 +62,7 @@ module.exports = {
     },
     {
       test: /\.s(c|a)ss$/,
-      include: [path.resolve(__dirname, 'src', 'initial')],
+      include: [path.resolve(__dirname, 'src')],
       use: [
         'style-loader',
         'css-loader',
@@ -76,7 +76,7 @@ module.exports = {
         plg.MiniCssExtract.loader,
         'css-loader',
         'postcss-loader',
-        'sass-loader'
+        'sass-loader',
       ]
     },
     {

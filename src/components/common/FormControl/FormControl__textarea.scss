@@ -3,4 +3,6 @@
   max-height: 18ch;
   max-width: 100%;
   @include input-border();
+  @include input-focus();
+  @include input-padding();
 }

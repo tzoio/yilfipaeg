@@ -2,3 +2,14 @@
   border-radius: $BORDER_RADIUS;
   border: 1px solid get-color('light');
 }
+
+@mixin input-focus() {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px lighten(get-color('accent'), 20);
+  }
+}
+
+@mixin input-padding() {
+  padding: 4px 8px;
+}
