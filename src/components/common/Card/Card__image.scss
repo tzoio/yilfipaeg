@@ -1,8 +1,23 @@
 .Card__image {
-  margin-left: -$CARD_PADDING;
-  margin-right: -$CARD_PADDING;
-  margin-top: -$CARD_PADDING;
+  position: relative;
+  top: 0;
   height: 150px;
-  @include set-margin-gutter('bottom');
+  width: 100%;
+  margin-bottom: $gutter;
 }
 
+.Card__image--full {
+  order: -1;
+  width: 120%;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  margin-top: -$gutter;
+}
+
+.Card__image--small {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  width: 62px;
+  height: 62px;
+}

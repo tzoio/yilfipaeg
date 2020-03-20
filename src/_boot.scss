@@ -10,7 +10,7 @@
 @include set-title-headers( ) {
   font-family: get-font-family('serif');
   font-weight: normal;
-  color: get-color('primary');
+  // color: get-color('primary');
 }
 
 html { font-size: get-font-size('regular') }

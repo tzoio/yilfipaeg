@@ -1,14 +1,23 @@
 .Button {
-  display: block;
-  padding: 5px 8px;
-  line-height: 1em;
-  text-transform: lowercase;
+  // display: inline-block;
+  padding: none;
+  text-transform: uppercase;
   background-color: transparent;
-  border: .1em solid get-color('secondary');
-  border-radius: $BORDER_RADIUS;
+  border: none;
+  font-weight: bold;
+  color: get-color('primary');
+
+  &:hover {
+    color: get-color('accent');
+  }
 }
 
-.Button_center {
+// .Button--solid {
+
+
+// }
+
+.Button--center {
   margin-left: auto;
   margin-right: auto;
 }

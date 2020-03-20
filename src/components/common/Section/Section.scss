@@ -1,8 +1,9 @@
 .Section {
   @include make-container-flex();
+  margin-bottom: $gutter;
 }
 
-.Section_items-center {
+.Section--items-center {
   align-items: center;
 }
 

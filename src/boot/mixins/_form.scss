@@ -1,5 +1,5 @@
 @mixin input-border( ) {
-  border-radius: $BORDER_RADIUS;
+  border-radius: $border-radius;
   border: 1px solid get-color('light');
 }
 

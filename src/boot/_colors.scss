@@ -25,7 +25,7 @@ $themes-map: (
 // The user may use one of the default themes or create one on his own
 
 
-$color-theme: 'grayscale' !default !global;
+$color-theme: 'complementary' !default !global;
 
 
 $colors: map-get($themes-map, #{$color-theme}) !global;

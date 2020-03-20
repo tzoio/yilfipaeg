@@ -1,18 +1,21 @@
-$CARD_MARGIN: 15px;
 .Card {
-  position: relative;
-  width: 300px;
-  margin-bottom: $CARD_MARGIN * 2;
-  margin-left: $CARD_MARGIN;
-  margin-right: $CARD_MARGIN;
   display: inline-flex;
+  position: relative;
+  max-width: 300px;
   flex-direction: column;
+  overflow: hidden;
+  padding: $gutter;
+  margin-bottom: $gutter * 2;
   box-shadow: 0 0 5px get-color('shadow');
-  border-radius: $BORDER_RADIUS;
-  @include set-padding($CARD_PADDING);
+  border-radius: $border-radius;
+  background-color: get-color('dark');
 
   &:last-of-type {
     margin-bottom: inherit;
+  }
+
+  @include media-query('regular') {
+    @include set-lateral-margin($gutter);
   }
 }
 

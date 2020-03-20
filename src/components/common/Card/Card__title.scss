@@ -1,4 +1,7 @@
 .Card__title {
+  display: inline-block;
+  width: 75%;
+  margin-bottom: $gutter;
   font-weight: bold;
-  @include set-margin-gutter('bottom');
+  color: get-color('primary');
 }

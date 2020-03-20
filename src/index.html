@@ -168,9 +168,12 @@
     <h1 class="Section__title">testimonials </h1>
     <ul class="CardList">
       <li class="Card">
-        <img alt="" class="Card__image" style="/*background-color: #000;*/">
-        <h2 class="Card__title">Nome da pessoa</h2>
-        <h3 class="Card__subtitle">Gerente de negócios</h3>
+        <div class="Card__header">
+
+          <h2 class="Card__title">Nome da pessoa</h2>
+          <h3 class="Card__subtitle">Gerente de negócios</h3>
+          <img alt="" class="Card__image" style="background-color: #000;">
+        </div>
         <p class="Card__body">
           <!-- <img alt=""> -->
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -184,7 +187,7 @@
         <div class="Card__header">
           <h2 class="Card__title">Nome da pessoa</h2>
           <small class="Card__subtitle">Gerente de negócios</small>
-          <img alt="" class="Card__header__image" style="background-color: #000;">
+          <img alt="" class="Card__image Card__image--small" style="background-color: #000;">
         </div>
         <p class="Card__body">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
@@ -196,7 +199,7 @@
         <div class="Card__header">
           <h2 class="Card__title">Nome da pessoa</h2>
           <small class="Card__subtitle">Gerente de negócios</small>
-          <img alt="" class="Card__header__image" style="background-color: #000;">
+          <img alt="" class="Card__image Card__image--full" style="background-color: #000;">
         </div>
         <p class="Card__body">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
@@ -243,7 +246,7 @@
         <label for="idea" class="Form__label">What is yout idea?</label>
         <textarea name="" id="idea" class="Form__textarea"></textarea>
       </div>
-      <button type="submit" class="Button Button_center">Send</button>
+      <button type="submit" class="Button Button--center Button--solid">Send</button>
     </form>
   </section>
 
