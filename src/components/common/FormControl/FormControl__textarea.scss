@@ -1,7 +1,10 @@
-.Form__textarea {
+.FormControl__textarea {
   height: 10ch;
   max-height: 18ch;
+  min-height: 2ch;
   max-width: 100%;
+  width: 100%;
+  display: block;
   @include input-border();
   @include input-focus();
   @include input-padding();

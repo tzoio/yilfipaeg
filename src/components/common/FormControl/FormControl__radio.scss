@@ -1,0 +1,7 @@
+.FormControl__radio {
+  display: inline-block;
+
+  &:not(:first-of-type) {
+    margin-left: $gutter;
+  }
+}

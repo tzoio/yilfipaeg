@@ -1,5 +1,7 @@
-.Form__input-text {
+.FormControl__input {
   @include input-padding();
   @include input-border();
   @include input-focus();
+  display: block;
+  width: 100%;
 }

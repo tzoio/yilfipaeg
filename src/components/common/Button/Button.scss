@@ -1,5 +1,6 @@
+@import './Button__group.scss';
+
 .Button {
-  // display: inline-block;
   padding: none;
   text-transform: uppercase;
   background-color: transparent;
@@ -11,11 +12,6 @@
     color: get-color('accent');
   }
 }
-
-// .Button--solid {
-
-
-// }
 
 .Button--center {
   margin-left: auto;

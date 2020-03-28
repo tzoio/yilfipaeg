@@ -1,0 +1,10 @@
+.FormControl__container {
+  display: block;
+  width: 100%;
+}
+
+.FormControl__container--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

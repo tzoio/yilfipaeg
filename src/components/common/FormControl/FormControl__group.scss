@@ -1,5 +1,14 @@
-.Form__group {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: $gutter;
+.FormControl__group {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: $gutter;
+
+  @include media-query('regular') {
+    width: 70%;
+  }
+}
+
+.FormControl__group--center {
+  width: auto;
 }
