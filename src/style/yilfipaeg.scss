@@ -4,6 +4,7 @@
 @import './components/common/Button/Button';
 @import './components/common/CardList/CardList';
 @import './components/common/Card/Card';
+@import './components/common/Page/Page';
 
 .Form {
   @include set-max-width-device();

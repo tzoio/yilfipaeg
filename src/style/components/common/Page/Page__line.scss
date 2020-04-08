@@ -1,0 +1,16 @@
+.Page__line {
+  display: block;
+  margin: 0 $gutter;
+  min-height: 1.5em;
+  border: 1px solid black;
+  background: none;
+  outline: none;
+
+  &:first-of-type {
+    margin-top: $gutter;
+  }
+
+  &:last-of-type {
+    margin-bottom: $gutter;
+  }
+}
