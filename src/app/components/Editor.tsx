@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import * as React from 'react';
+import {Component, MouseEvent, KeyboardEvent} from 'react';
+import {Line} from './Line';
 
-export default class Page extends Component {
+export interface EditorProps {}
 
-  constructor(props) {
+export class Editor extends Component<EditorProps, {lines: JSX.Element[], focused: Line}> {
+
+  constructor(props: EditorProps) {
     super(props);
 
     this.state = {
@@ -10,19 +14,14 @@ export default class Page extends Component {
       focused: null
     }
 
-    this.ref = React.createRef();
     this._handleKeyDown = this._handleKeyDown.bind(this);
   }
 
-  componentDidMount() {
-
-    this._addLines(this.props.numLines);
-  }
+  componentDidMount() { }
 
   render() {
     return (
       <div
-        ref={this.ref}
         contentEditable
         className="Page"
         onClick={(e) => this._handleClick(e)}
@@ -32,13 +31,13 @@ export default class Page extends Component {
     );
   }
 
-  _handleClick(e) {
+  _handleClick(e: MouseEvent) {
 
     this._updateFocus({ type: 'click', data: e.pageY })
 
   }
 
-  _handleKeyDown(e) {
+  _handleKeyDown(e: KeyboardEvent) {
 
     switch (e.key) {
 
@@ -48,7 +47,7 @@ export default class Page extends Component {
         break;
       case 'ArrowDown':
         e.preventDefault();
-        this._updateFocus({ type: 'arrow-down' })
+        // this._updateFocus({ type: 'arrow-down' })
         break;
       default:
         // this.updateValue(e.key);
@@ -57,7 +56,7 @@ export default class Page extends Component {
   }
 
   // change isLast property
-  _addLines(qty) {
+  _addLines(qty: number) {
     const lines = this.state.lines;
 
     for (; qty > 0; qty--)
@@ -66,25 +65,14 @@ export default class Page extends Component {
     this.setState({lines});
   }
 
-  _updateFocus({type, data}) {
+  _updateFocus(p: {type: string, data?: any}) {
 
-    switch (type) {
+    switch (p.type) {
       case 'click':
-        const focused = this._closestLine(data);
-        this.setState({ focused });
 
         break;
 
       case 'arrow-down':
-        const curr = this.state.focused;
-
-        if (!curr.isLast) {
-          const next = LineHandler(this.state.lines[curr.id + 1], curr.id +1 == this.state.lines.length -1 , curr.id +1);
-          this.setState({focused: next});
-
-        } else {
-          console.log('Last LineHandler');
-        }
 
         break;
     }
@@ -117,7 +105,7 @@ export default class Page extends Component {
   // }
 
 
-  _keyWhiteSpace(e) {
+  _keyWhiteSpace(e: KeyboardEvent) {
 
     switch (e.key) {
       case 'Tab':
@@ -125,37 +113,14 @@ export default class Page extends Component {
         break;
 
       case 'Enter':
-        if (this.state.focused.isLast)
-          console.log('Is last')
-        else
-          console.log('Is not last')
+        // if (this.state.focused.isLast)
+        //   console.log('Is last')
+        // else
+        //   console.log('Is not last')
         break;
     }
 
   }
 
 
-}
-
-class Line extends Component {
-
-  constructor(props) {
-    super(props);
-
-    // this.onFocus = this.onFocus.bind(this);
-  }
-
-  render() {
-    return (
-      <p className="Page__line" onFocus={this.onFocus}></p>
-    )
-  }
-}
-
-function LineHandler(line, isLast, id) {
-  return {
-    line,
-    isLast,
-    id,
-  };
 }

@@ -4,19 +4,19 @@
   "description": "",
   "main": "./src/main.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode=development",
-    "prod": "webpack --mode=production"
+    "dev": "webpack-dev-server  --no-inline --env.NODE_ENV=development",
+    "prod": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
-    "autoprefixer": "^9.4.3",
-    "babel-loader": "^8.0.4",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.2.1",
     "clean-webpack-plugin": "^1.0.0",
@@ -31,7 +31,6 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.6",
-    "postcss-colorblind": "^1.0.0",
     "postcss-csso": "^3.0.0",
     "postcss-font-magician": "^2.2.1",
     "postcss-loader": "^3.0.0",
@@ -43,12 +42,14 @@
     "stylelint": "^9.9.0",
     "svg-url-loader": "^2.3.2",
     "svgo": "^1.1.1",
-    "uglifyjs-webpack-plugin": "^2.1.1",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^1.1.2",
-    "webpack": "^4.42.0",
+    "webpack": "^4.42.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.13"
+    "webpack-dev-server": "^3.1.0"
   },
   "dependencies": {
     "react": "^16.13.1",

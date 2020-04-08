@@ -1,116 +1,92 @@
 const webpack = require('webpack');
 const path = require('path');
-const isDev = (process.env.NODE_ENV === 'development') ? true : false;
-const plg = {
-  HtmlWebpack: require('html-webpack-plugin'),
+const Plugin = {
   CleanWebpack: require('clean-webpack-plugin'),
-  MiniCssExtract: require('mini-css-extract-plugin'),
   UglifyJs: require('uglifyjs-webpack-plugin'),
+  MiniCssExtract: require('mini-css-extract-plugin'),
+  HtmlWebpack: require('html-webpack-plugin'),
   SourceMapDevTool: webpack.SourceMapDevToolPlugin,
-  BundleAnalyzer: require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-}
+};
 
-module.exports = {
+module.exports = env => {
+  const isDev = env.NODE_ENV === 'development';
 
-  mode: isDev ? 'development' : 'production',
-  entry: './src/index.js',
-  devtool: isDev ? 'inline-source-map' : 'source-map',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  optimization: isDev ? { minimize: false } : { minimizer: [new plg.UglifyJs()] },
-  context: path.resolve(__dirname),
-  devServer: {
-    disableHostCheck: true,
-    host: '0.0.0.0',
-    port: 4200,
-    quiet: true,
-    compress: true,
-    clientLogLevel: 'warning'
-  },
-  plugins: [
-    new plg.MiniCssExtract({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
-    }),
-    new plg.HtmlWebpack({
-      template: 'src/index.html',
-      filename: 'index.html'
-    }),
-    new plg.CleanWebpack(['dist']),
-    new plg.BundleAnalyzer({
-      analyzerMode: isDev ? 'server' : 'disabled',
-      analyzerHost: '0.0.0.0',
-      analyzerPort: '8081'
-    })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
-          }
-        }]
-      },
-      {
-        test: /\.s(c|a)ss$/,
-        include: [path.resolve(__dirname, 'src')],
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
-        ]
-      },
-      {
-        test: /\.s(c|a)ss$/,
-        use: [
-          plg.MiniCssExtract.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ]
-      },
-      {
-        test: /\.svg$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: 'image/[hash].[ext]'
-          }
+  return {
+    mode: isDev ? 'development' : 'production',
+    devtool: isDev ? 'eval-source-map': 'source-map',
+    optimization: {
+      minimize: !isDev,
+      minimizer: [new Plugin.UglifyJs()]
+    },
+    context: path.resolve(__dirname, 'src'),
+    entry: './index.tsx',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].bundle.js',
+
+    },
+    devServer: {
+      // disableHostCheck: true,
+      host: '0.0.0.0',
+      port: 8080,
+      // quiet: true,
+      compress: true,
+      clientLogLevel: 'debug',
+      contentBase: path.join(__dirname, 'src')
+    },
+    plugins: [
+      new Plugin.MiniCssExtract({
+        filename: '[name].css',
+        chunkFilename: '[id].css'
+      }),
+      new Plugin.CleanWebpack(['dist']),
+      new Plugin.HtmlWebpack({
+        template: 'index.html',
+        filename: 'index.html'
+      }),
+      new Plugin.SourceMapDevTool({
+        filename: 'sourcemaps/[file].map'
+      })
+    ],
+    resolve: {
+      extensions: [' ', '.tsx', '.ts', '.jsx', '.js']
+    },
+    module: {
+      rules: [
+        {
+          test: /\.s(c|a)ss$/,
+          use: [
+            isDev ? 'style-loader' : Plugin.MiniCssExtract.loader, // inserts css into the DOM (links or inside tags and other ways)
+            'css-loader', // executes @import as Js import/require
+            'postcss-loader', // executes postcss enabled features
+            'sass-loader' // transpiles sass/scss to css
+          ]
         },
         {
-          loader: 'image-webpack-loader'
-        }
-        ]
-      },
-      {
-        test: /\.(gif|png|jpe?g)$/,
-        use: [{
-          loader: 'url-loader', // it already falls back on file-loader by default
-          options: {
-            limit: 8000, // Converts images < 8kb to base64 strings
-            name: 'image/[hash].[ext]'
-          }
+          test: /\.js(x?)$/,
+          exclude: /node_modules/,
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-env']
+            }
+          }]
         },
         {
-          loader: 'image-webpack-loader'
-        }]
-      },
-      {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            attrs: [':src', 'link:href']
-          }
-        }
-      }
-    ]
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: 'ts-loader'
+        },
+        {
+          test: /\.(jpg|png|gif|svg)$/,
+          loader: 'image-webpack-loader',
+          enforce: 'pre'
+        },
+        {
+          test: /\.html$/,
+          use: 'html-loader'
+        },
+      ]
+    }
   }
 }
