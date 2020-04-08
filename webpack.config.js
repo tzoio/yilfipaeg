@@ -5,7 +5,6 @@ const Plugin = {
   UglifyJs: require('uglifyjs-webpack-plugin'),
   MiniCssExtract: require('mini-css-extract-plugin'),
   HtmlWebpack: require('html-webpack-plugin'),
-  SourceMapDevTool: webpack.SourceMapDevToolPlugin,
 };
 
 module.exports = env => {
@@ -19,7 +18,7 @@ module.exports = env => {
       minimizer: [new Plugin.UglifyJs()]
     },
     context: path.resolve(__dirname, 'src'),
-    entry: './index.tsx',
+    entry: ['./index.tsx', './index.scss'],
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].bundle.js',
@@ -29,10 +28,9 @@ module.exports = env => {
       // disableHostCheck: true,
       host: '0.0.0.0',
       port: 8080,
-      // quiet: true,
       compress: true,
       clientLogLevel: 'debug',
-      contentBase: path.join(__dirname, 'src')
+      contentBase: path.join(__dirname, 'dist')
     },
     plugins: [
       new Plugin.MiniCssExtract({
@@ -43,9 +41,6 @@ module.exports = env => {
       new Plugin.HtmlWebpack({
         template: 'index.html',
         filename: 'index.html'
-      }),
-      new Plugin.SourceMapDevTool({
-        filename: 'sourcemaps/[file].map'
       })
     ],
     resolve: {
