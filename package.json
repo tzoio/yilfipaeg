@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/main.js",
   "scripts": {
-    "dev": "webpack-dev-server  --no-inline --env.NODE_ENV=development",
+    "dev": "webpack-dev-server --env.NODE_ENV=development",
     "prod": "webpack"
   },
   "author": "",
