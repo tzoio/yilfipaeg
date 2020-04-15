@@ -1,15 +1,14 @@
-@import './Button__group.scss';
-
 .Button {
-  padding: none;
-  text-transform: uppercase;
-  background-color: transparent;
-  border: none;
-  font-weight: bold;
+  padding: 3px 7px;
+  margin-right: $gutter;
+  border: 1px solid get-color('primary');
+  border-radius: 3px;
   color: get-color('primary');
 
   &:hover {
+    cursor: pointer;
     color: get-color('accent');
+    border-color: get-color('accent');
   }
 }
 

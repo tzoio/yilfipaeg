@@ -1,0 +1,11 @@
+.Page {
+  margin-bottom: $gutter;
+  padding: 0 $gutter;
+}
+
+.Page--items-center {
+  align-items: center;
+}
+
+
+@import './Page__title';

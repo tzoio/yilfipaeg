@@ -1,0 +1,12 @@
+.Page__title {
+  display: block;
+  margin-bottom: $gutter;
+  margin-top: $gutter * 2;
+  color: get-color('primary');
+  font-weight: bold;
+  font-family: get-font-family('sans-serif');
+}
+
+.Page__title--center {
+  margin: 0 auto;
+}

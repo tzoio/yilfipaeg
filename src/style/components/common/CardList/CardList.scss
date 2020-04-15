@@ -1,6 +1,8 @@
 .CardList {
-  display: flex;
+  display: grid;
+  column-gap: $gutter;
+  row-gap: $gutter;
+  grid-template-columns: repeat(auto-fit, 250px) ;
   justify-content: center;
-  flex-wrap: wrap;
   @include reset-padding();
 }

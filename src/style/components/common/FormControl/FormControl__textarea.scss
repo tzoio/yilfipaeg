@@ -5,7 +5,5 @@
   max-width: 100%;
   width: 100%;
   display: block;
-  @include input-border();
-  @include input-focus();
-  @include input-padding();
+  @include input();
 }

@@ -1,0 +1,35 @@
+@import './Nav__item';
+@import './Nav__link';
+
+.Nav {
+  margin: $gutter 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Nav--scroll {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &::after, &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  &::after {
+    right: 0;
+    left: 98%;
+    background-image: linear-gradient(to left, get-color('white'), transparent);
+  }
+
+  &::before {
+    left: 0;
+    right: 98%;
+    background-image: linear-gradient(to right, get-color('white'), transparent);
+  }
+}

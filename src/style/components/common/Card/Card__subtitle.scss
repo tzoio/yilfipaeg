@@ -1,6 +1,7 @@
 .Card__subtitle {
   display: inline-block;
   width: 75%;
+  margin: 0 $gutter;
   margin-bottom: $gutter;
   line-height: 1em;
   font-family: get-font-family('sans-serif');

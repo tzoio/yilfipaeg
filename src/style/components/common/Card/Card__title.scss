@@ -1,7 +1,10 @@
 .Card__title {
   display: inline-block;
   width: 75%;
-  margin-bottom: $gutter;
+  margin: $gutter;
+  margin-bottom: 5px;
   font-weight: bold;
   color: get-color('primary');
+  font-size: get-font-size('large');
+  font-family: get-font-family('sans-serif');
 }

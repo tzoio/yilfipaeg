@@ -13,3 +13,16 @@
 @mixin input-padding() {
   padding: 4px 8px;
 }
+
+@mixin input() {
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: $border-radius;
+  border: 1px solid get-color('primary');
+  background-color: get-color('white');
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 1px 3px lighten(get-color('primary'), 20%);
+  }
+}

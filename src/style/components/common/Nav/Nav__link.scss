@@ -1,0 +1,8 @@
+.Nav__link {
+  color: get-color('dark');
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}

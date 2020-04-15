@@ -8,7 +8,7 @@ const Plugin = {
 };
 
 module.exports = env => {
-  const isDev = env.NODE_ENV === 'development';
+  const isDev = env && env.NODE_ENV === 'development';
 
   return {
     mode: isDev ? 'development' : 'production',
@@ -29,6 +29,8 @@ module.exports = env => {
       port: 4200,
       compress: true,
       clientLogLevel: 'debug',
+      publicPath: '/',
+      historyApiFallback: true,
     },
     plugins: [
       new Plugin.MiniCssExtract({
@@ -47,6 +49,10 @@ module.exports = env => {
     module: {
       rules: [
         {
+          test: /\.html$/,
+          use: 'html-loader'
+        },
+        {
           test: /\.s(c|a)ss$/,
           use: [
             isDev ? 'style-loader' : Plugin.MiniCssExtract.loader, // inserts css into the DOM (links or inside tags and other ways)
@@ -61,7 +67,8 @@ module.exports = env => {
           use: [{
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-react', '@babel/preset-env']
+              presets: ['@babel/preset-react', '@babel/preset-env'],
+              plugins: ['@babel/transform-react-jsx-img-import']
             }
           }]
         },
@@ -71,14 +78,15 @@ module.exports = env => {
           use: 'ts-loader'
         },
         {
-          test: /\.(jpg|png|gif|svg)$/,
-          loader: 'image-webpack-loader',
-          enforce: 'pre'
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+            {loader: 'image-webpack-loader'}
+          ]
         },
-        {
-          test: /\.html$/,
-          use: 'html-loader'
-        },
+
       ]
     }
   }

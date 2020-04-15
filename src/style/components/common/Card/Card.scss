@@ -1,22 +1,8 @@
 .Card {
-  display: inline-flex;
-  position: relative;
-  max-width: 300px;
-  flex-direction: column;
   overflow: hidden;
-  padding: $gutter;
-  margin-bottom: $gutter * 2;
-  box-shadow: 0 0 5px get-color('shadow');
   border-radius: $border-radius;
+  box-shadow: 0 0 5px get-color('shadow');
   background-color: get-color('dark');
-
-  &:last-of-type {
-    margin-bottom: inherit;
-  }
-
-  @include media-query('regular') {
-    @include set-lateral-margin($gutter);
-  }
 }
 
 @import './Card__subtitle';

@@ -8,7 +8,7 @@
 
 .Card__image--full {
   order: -1;
-  width: 120%;
+  width: calc(100% + #{$gutter}*2);
   margin-left: -$gutter;
   margin-right: -$gutter;
   margin-top: -$gutter;

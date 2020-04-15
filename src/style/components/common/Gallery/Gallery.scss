@@ -9,10 +9,15 @@
   margin: $gutter auto;
   border: none;
   border-radius: 15px;
-  box-shadow: 10px 10px 30px rgba(0,0,0,.20);
-  background-color: rgba($color: #000, $alpha: 0.03);
+  box-shadow: 0 0 30px get-color('shadow');
+  background-color: get-color('white');
 
   @include media-query('regular') {
     width: 70%;
   }
+}
+
+.Gallery__placeholder {
+  opacity: .8;
+  text-align: center;
 }

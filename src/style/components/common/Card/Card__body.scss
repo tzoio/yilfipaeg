@@ -1,4 +1,5 @@
 .Card__body {
-  margin-bottom: 0;
+  margin: 0 $gutter;
+  margin-bottom: $gutter;
   color: get-color('secondary');
 }

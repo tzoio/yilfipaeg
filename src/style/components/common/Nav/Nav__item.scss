@@ -1,0 +1,14 @@
+.Nav__item {
+  display: inline-block;
+  margin-right: $gutter;
+  padding: 5px 10px;
+
+  &:first-of-type {
+    margin-left: $gutter;
+  }
+}
+
+.Nav__item--outline {
+  border: 1px solid get-color('dark');
+  border-radius: 3px;
+}

@@ -1,11 +1,13 @@
 .FormControl__group {
   display: block;
   width: 100%;
-  margin: 0 auto;
   margin-bottom: $gutter;
 
-  @include media-query('regular') {
-    width: 70%;
+  &:focus-within {
+    .FormControl__label {
+      color: get-color('primary');
+      font-weight: bold;
+    }
   }
 }
 

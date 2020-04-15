@@ -1,26 +1,54 @@
 import * as React from 'react';
+import { CardList } from './exhibits/CardList';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import { Selection } from './components/Selection';
-import { Display } from './components/Display';
-import { Curator } from './services/Curator';
-import { ExhibitItem } from './components/ExhibitItem';
-import { Card } from './exhibits/Card';
+import { Form } from './exhibits/Form';
 
 
 export class App extends React.Component<{}, {}> {
 
   render() {
-    const curator = new Curator();
 
     return (
-      <div className="Gallery">
-        <Selection>
-          <ExhibitItem name=" " iconPath=" " curator={curator} component={React.createElement(Card)}/>
-        </Selection>
-        <Display curator={curator}>
+      <Router >
+        <div className="Gallery Page">
+          <Selection/>
 
-        </Display>
-      </div>
+          <Switch>
+            <Route path="/card-list">
+              <React.Fragment>
+                <h1 className="Page__title">CardList</h1>
+                <CardList/>
+              </React.Fragment>
+
+            </Route>
+            <Route path="/form">
+              <React.Fragment>
+                <h1 className="Page__title">Form</h1>
+                <Form />
+              </React.Fragment>
+
+            </Route>
+          </Switch>
+        </div>
+      </Router>
       );
+    }
   }
-}
 
+  // <div className="Gallery Section">
+  //   <Selection>
+  //     <ExhibitItem
+  //       name="CardList"
+  //       iconPath={require('../assets/images/cardlist.png')}
+  //       curator={curator}
+  //       component={React.createElement(CardList)}/>
+  //   </Selection>
+  //   <Display curator={curator}>
+
+  //   </Display>
+  // </div>

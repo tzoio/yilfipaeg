@@ -1,7 +1,18 @@
 .FormControl__radio {
-  display: inline-block;
+  display: flex;
+  margin-bottom: 5px;
 
-  &:not(:first-of-type) {
-    margin-left: $gutter;
-  }
 }
+
+.FormControl__radio__input {
+  order: 1;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.FormControl__radio__label {
+  order: 2;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
